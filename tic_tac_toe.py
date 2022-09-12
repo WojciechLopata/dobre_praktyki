@@ -20,10 +20,10 @@ class game(win_check.state_check,button.Button):
         self.start=random.randint(0,1)
         self.result="W trakcie"
     def place(self,position):
-        wiersz=int(position/self.size)
-        kolumna=position%self.size
-        if(self.board[wiersz][kolumna]==" "):
-            self.board[wiersz][kolumna]=self.symbol
+        row=int(position/self.size)
+        col=position%self.size
+        if(self.board[row][col]==" "):
+            self.board[row][col]=self.symbol
             setattr(objects[position],"image",pygame.image.load(f"images/{self.symbol}.png"))
             
             
