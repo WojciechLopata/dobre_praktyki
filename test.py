@@ -1,22 +1,28 @@
-import pygame
-import tic_tac_toe
+import numpy as np
+piece=[[0,0,0,0],[1,0,0,0],[1,1,0,0],[0,1,0,0]]
+piece=[[0,0,0,0],[0,0,0,0],[0,1,1,1],[0,0,0,1]]
+#rotated = list(zip(*a[::-1]))
 
-pygame.init()
-screen = pygame.display.set_mode((500, 600))
-clock = pygame.time.Clock()
-font = pygame.font.SysFont("Arial", 20)
+def print2_d(piece):
+    for line in piece:
+        print(line)
+    print("--------------------------------------------------------")
+        
+#piece_rotated=[[0,0,0,0],[0,0,0,0],[0,1,1,0],[1,1,0,0]
+ihm = [[0,0,0,1],[0,0,1,0],[0,1,0,0],[1,0,0,0]]
+ihm=np.array(ihm)
+    
+piece=np.array(piece)
+piece.transpose()
+rotation =np.matmul( piece,ihm)
+piece=rotation
+print(piece)
+piece.transpose()
+rotation =np.matmul( piece,ihm)
+piece=rotation
+print(piece)    
+        
+    #for i in lista:
+ 
+     #   helper[i]
 
-
-def function1():
-    print('Function 1')
-
-def function2():
-    print('Function 2')
-
-#list of functions
-myList = [function1, function2,tic_tac_toe.tic]
-
-#call function using list object
-myList[0]()
-myList[1]()
-myList[2]()
