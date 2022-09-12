@@ -41,8 +41,9 @@ class game(win_check.state_check):
         self.placing_aid[col]+=1
         if(self.board[row][col]==" "):
             self.board[row][col]=symbol
-            if(symbol=="X"):ball=sprites("red.png",(board_left+((width-50)/7)*(col)+35,board_top+height-self.placing_aid[col]*100))
-            else:ball=sprites("yellow.png",(board_left+((width-50)/7)*(col)+35,board_top+height-self.placing_aid[col]*100))
+            pos=(board_left+((width-50)/7)*(col)+35,board_top+height-self.placing_aid[col]*100)
+            if(symbol=="X"):ball=sprites("images/red.png",pos)
+            else:ball=sprites("images/yellow.png",pos)
             balls.append(ball)
             
             self.render()
@@ -62,7 +63,7 @@ class game(win_check.state_check):
             self.symbol="X"
         else: self.symbol="O"
         self.render()
-        print(position)
+        
         while not self.place(position,self.symbol):
             print()
             
@@ -118,16 +119,16 @@ screen=pygame.display.set_mode((x,y))
 white = (255, 255, 255)
 green = (0, 255, 0)
 blue = (0, 0, 128)       
-board=pygame.image.load('connect_4.png')        
+board=pygame.image.load('images/connect_4.png')        
 width=board.get_width()
 height=board.get_height()
 board_left=(x-width)/2
 board_top=(y-height)/2
-objects=[button.Button([board_left+((width-50)/7)*(i)+35,50],"arrow.png",1,False) for i in range(7)]   
-restart=button.Button([500,800],"restart.png",1,False)
-go_back=button.Button([0,780],"go_back.jpg",0.5,False)
-red=pygame.image.load("red.png")
-yellow=pygame.image.load("yellow.png")
+objects=[button.Button([board_left+((width-50)/7)*(i)+35,50],"images/arrow.png",1,False) for i in range(7)]   
+restart=button.Button([500,800],"images/restart.png",1,False)
+go_back=button.Button([0,780],"images/go_back.jpg",0.5,False)
+red=pygame.image.load("images/red.png")
+yellow=pygame.image.load("images/yellow.png")
 balls=[]
 
 

@@ -24,8 +24,8 @@ class game(win_check.state_check,button.Button):
         kolumna=position%self.size
         if(self.board[wiersz][kolumna]==" "):
             self.board[wiersz][kolumna]=self.symbol
-            setattr(objects[position],"image",pygame.image.load(f"{self.symbol}.png"))
-            print("place")
+            setattr(objects[position],"image",pygame.image.load(f"images/{self.symbol}.png"))
+            
             
 
         else:return False
@@ -88,7 +88,7 @@ class game(win_check.state_check,button.Button):
 
         self.render
         for object in objects:
-            print(dir(object))
+           
             setattr(object,"clicked",True)
         
 def status(result):
@@ -103,11 +103,11 @@ blue = (0, 0, 128)
  
 #board=pygame.image.load('board.png')
 #pygame.mouse.set_visible(1)
-pola=["Puste.png" for i in range(9)]
+pola=["images/Puste.png" for i in range(9)]
 pola_pos=[[15,15],[265,15],[515,15],[20,270],[265,265],[515,265],[20,520],[265,515],[515,515]]
 objects=[button.Button(pola_pos[i],pola[i],1) for i in range(9)]
-restart=button.Button([500,800],"restart.png",1,False)
-go_back=button.Button([0,780],"go_back.jpg",0.5,False)
+restart=button.Button([500,800],"images/restart.png",1,False)
+go_back=button.Button([0,780],"images/go_back.jpg",0.5,False)
 pygame.font.init()
 font = pygame.font.Font('freesansbold.ttf', 32)
 
@@ -120,7 +120,7 @@ def tic():
         state=True
         a=game()
         a.begin()
-        board=pygame.image.load('board.png')
+        board=pygame.image.load('images/board.png')
         boardx=0
         boardy=0
     
@@ -158,13 +158,13 @@ def tic():
                 if(restart.draw(screen,None)):
                     state=False
                     global pola
-                    pola=["Puste.png" for i in range(9)]
+                    pola=["images/Puste.png" for i in range(9)]
                     objects=[button.Button(pola_pos[i],pola[i],1) for i in range(9)]
                     tic()
                 status(a.result)
                 if(go_back.draw(screen,None)):
                     
-                    pola=["Puste.png" for i in range(9)]
+                    pola=["images/Puste.png" for i in range(9)]
                     objects=[button.Button(pola_pos[i],pola[i],1) for i in range(9)]
                     return True
                 pygame.display.update()

@@ -10,11 +10,11 @@ pygame.init
 pygame.font.init()
 screen=pygame.display.set_mode((754,958))
 pygame.display.set_caption("GAME COLLECTION")
-icon=pygame.image.load("logo.png")
+icon=pygame.image.load("images/logo.png")
 pygame.display.set_icon(icon)
-game1=button.Button([100,100],"logo.png",6.4,False)
-game2=button.Button([300,300],"tetris.png",1,False)
-game3=button.Button([500,500],"connect-four.png",1,False)
+game1=button.Button([100,100],"images/logo.png",6.4,False)
+game2=button.Button([300,300],"images/tetris.png",1,False)
+game3=button.Button([500,500],"images/connect-four.png",1,False)
 actions=[[game1,tic_tac_toe.tic],[game2,"tetris"],[game3,connect_4.connect_4]]
 state=True
 screen.fill((130,100,0))

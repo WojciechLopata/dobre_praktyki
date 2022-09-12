@@ -2,7 +2,7 @@ import pygame
 class Button:
     def __init__(self,pos,file_name,scale,one_click=True):
         self.image=pygame.image.load(file_name)
-        print(pos)
+        
         (x,y)=pos
         width=self.image.get_width()
         height=self.image.get_height()
